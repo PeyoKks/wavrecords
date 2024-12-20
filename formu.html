@@ -1,0 +1,250 @@
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAV RECORDS</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        background-color: #000;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        overflow-x: hidden;
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .circles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+    }
+    
+    .circle {
+        position: absolute;
+        border-radius: 50%;
+        animation: pulse 3s infinite;
+        opacity: 0.3;
+    }
+    
+    .circle-purple {
+        background: radial-gradient(circle, #8a2be2 0%, transparent 70%);
+    }
+    
+    .circle-white {
+        background: radial-gradient(circle, #ffffff 0%, transparent 70%);
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); opacity: 0.3; }
+        50% { transform: scale(1.2); opacity: 0.1; }
+        100% { transform: scale(1); opacity: 0.3; }
+    }
+    
+    .form-container {
+        width: 90%;
+        max-width: 600px;
+        margin: 20px;
+        padding: 30px;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 1em;
+        color: #fff;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
+        color: #fff;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+    
+    input:focus,
+    textarea:focus {
+        outline: none;
+        border-color: #8a2be2;
+        box-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
+    }
+    
+    .radio-group {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .radio-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+    }
+    
+    .checkbox-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        margin-top: 15px;
+        font-size: 0.9em;
+    }
+    
+    .submit-btn {
+        display: block;
+        width: 180px;
+        margin: 30px auto 0;
+        padding: 12px 25px;
+        background: #8a2be2;
+        border: none;
+        border-radius: 25px;
+        color: white;
+        font-size: 1.1em;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    
+    .submit-btn:hover {
+        transform: scale(1.05);
+    }
+    
+    textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
+    
+    @media (max-width: 480px) {
+        .form-container {
+            width: 95%;
+            padding: 20px;
+            margin: 10px;
+        }
+    
+        .submit-btn {
+            width: 150px;
+            font-size: 1em;
+        }
+    
+        label {
+            font-size: 0.9em;
+        }
+    
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        textarea {
+            padding: 8px;
+            font-size: 13px;
+        }
+    
+        .checkbox-label {
+            font-size: 0.8em;
+        }
+    }
+    </style>
+    </head>
+    <body>
+        <div class="circles">
+            <div class="circle circle-purple" style="width: 400px; height: 400px; top: 20%; left: 20%; animation-delay: 0s;"></div>
+            <div class="circle circle-white" style="width: 300px; height: 300px; top: 40%; left: 50%; animation-delay: 0.5s;"></div>
+            <div class="circle circle-purple" style="width: 500px; height: 500px; top: 60%; left: 30%; animation-delay: 1s;"></div>
+            <div class="circle circle-white" style="width: 200px; height: 200px; top: 10%; left: 70%; animation-delay: 1.5s;"></div>
+            <div class="circle circle-purple" style="width: 350px; height: 350px; top: 70%; left: 75%; animation-delay: 2s;"></div>
+        </div>
+    
+        <div class="form-container">
+            <form id="demo-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="instagram">Instagram Profile</label>
+                    <input type="text" id="instagram" name="instagram" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="spotify">Spotify Profile</label>
+                    <input type="text" id="spotify" name="spotify" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="release-title">Release Title</label>
+                    <input type="text" id="release-title" name="release-title" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="release-date">Release Date</label>
+                    <input type="date" id="release-date" name="release-date" required>
+                </div>
+    
+                <div class="form-group">
+                    <label>Have you released music before?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="previous-release" value="yes" required>
+                            Yes
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="previous-release" value="no" required>
+                            No
+                        </label>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label for="about">Tell us about yourself</label>
+                    <textarea id="about" name="about" required></textarea>
+                </div>
+    
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="confirm" name="confirm" required>
+                        I confirm that I have researched the label and understand its musical direction
+                    </label>
+                </div>
+    
+                <button type="submit" class="submit-btn">Submit Demo</button>
+            </form>
+        </div>
+    
+        <script>
+        document.getElementById('demo-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Form submitted successfully!');
+        });
+        </script>
+    </body>
+    </html>

@@ -1,0 +1,245 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAV RECORDS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            height: 100vh;
+            position: relative;
+        }
+        
+        .circles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            animation: pulse 3s infinite;
+            opacity: 0.3;
+        }
+        
+        .circle-purple {
+            background: radial-gradient(circle, #8a2be2 0%, transparent 70%);
+        }
+        
+        .circle-white {
+            background: radial-gradient(circle, #ffffff 0%, transparent 70%);
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+        }
+        
+        .header {
+            position: fixed;
+            width: 100%;
+            padding: 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .site-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .submit-demo {
+            margin-left: auto;
+            padding: 10px 20px;
+            background: #8a2be2;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .submit-demo:hover {
+            transform: scale(1.05);
+        }
+        
+        .moving-text-container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+        }
+        
+        .moving-text {
+            font-size: 4em;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+        
+        .round-buttons {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+        }
+        
+        .round-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #000;
+            border: 2px solid #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .round-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .round-button svg {
+            width: 30px;
+            height: 30px;
+            fill: #fff;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 10px;
+            }
+            .site-name {
+                font-size: 18px;
+            }
+            .submit-demo {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+            .moving-text {
+                font-size: 2em;
+                padding: 0 20px;
+            }
+            .round-button {
+                width: 50px;
+                height: 50px;
+            }
+            .round-button svg {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="circles">
+        <div class="circle circle-purple" style="width: 400px; height: 400px; top: 20%; left: 20%; animation-delay: 0s;"></div>
+        <div class="circle circle-white" style="width: 300px; height: 300px; top: 40%; left: 50%; animation-delay: 0.5s;"></div>
+        <div class="circle circle-purple" style="width: 500px; height: 500px; top: 60%; left: 30%; animation-delay: 1s;"></div>
+        <div class="circle circle-white" style="width: 200px; height: 200px; top: 10%; left: 70%; animation-delay: 1.5s;"></div>
+        <div class="circle circle-purple" style="width: 350px; height: 350px; top: 70%; left: 75%; animation-delay: 2s;"></div>
+    </div>
+
+    <header class="header">
+        <div class="logo-container">
+            <img class="logo" src="logo.png" alt="Purple Crunch Records logo, circular purple brand icon" width="50" height="50">
+            <span class="site-name">WAV RECORDS</span>
+        </div>
+        <button class="submit-demo">Submit Demo</button>
+    </header>
+    <div class="moving-text-container">
+        <h1 class="moving-text">we focus on melodic expression of musics</h1>
+    </div>
+
+    <div class="round-buttons">
+        <button class="round-button" id="spotify-btn">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                </svg>
+            </button>
+        <button class="round-button" id="instagram-btn">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+            </button>
+    </div>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const text = document.querySelector('.moving-text');
+            const container = document.querySelector('.moving-text-container');
+
+            const rect = container.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            const moveX = Math.min(Math.max((e.clientX - centerX) / 50, -20), 20);
+            const moveY = Math.min(Math.max((e.clientY - centerY) / 50, -20), 20);
+
+            const rotateX = Math.min(Math.max(-moveY, -5), 5);
+            const rotateY = Math.min(Math.max(moveX, -5), 5);
+
+            text.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        document.querySelector('.submit-demo').addEventListener('click', () => {
+            window.location.href = "formu.html";
+        });
+
+        document.getElementById('spotify-btn').addEventListener('click', () => {
+            window.location.href = "";
+        });
+
+        document.getElementById('instagram-btn').addEventListener('click', () => {
+            window.location.href = "";
+        });
+    </script>
+</body>
+
+</html>
